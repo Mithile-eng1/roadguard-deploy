@@ -66,7 +66,7 @@ function App() {
   const [analysisError, setAnalysisError] = useState('');
 
   const [historyItems, setHistoryItems] = useState(() => loadLocal('rg_history', []));
-  const [apiConfig, setApiConfig] = useState(() => loadLocal('rg_settings', { backendUrl: '', useLiveApi: true }));
+  const [apiConfig, setApiConfig] = useState(() => loadLocal('rg_settings', { backendUrl: import.meta.env.VITE_BACKEND_URL || '', useLiveApi: true }));
   const [backendOnline, setBackendOnline] = useState(null); // null = unknown
   // Google Maps JS key: build-time env wins, else the backend hands out its own key
   const [mapsKey, setMapsKey] = useState(import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '');
